@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Github\\SqlQueryBuilder\\SqlQueryBuilder\\SqlQueryBuilder.csproj": {}
+    "D:\\university\\magister\\2-nd semestr\\db\\course_work\\sql-query-builder\\SqlQueryBuilder\\SqlQueryBuilder.csproj": {}
   },
   "projects": {
-    "C:\\Github\\SqlQueryBuilder\\SqlQueryBuilder\\SqlQueryBuilder.csproj": {
+    "D:\\university\\magister\\2-nd semestr\\db\\course_work\\sql-query-builder\\SqlQueryBuilder\\SqlQueryBuilder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Github\\SqlQueryBuilder\\SqlQueryBuilder\\SqlQueryBuilder.csproj",
+        "projectUniqueName": "D:\\university\\magister\\2-nd semestr\\db\\course_work\\sql-query-builder\\SqlQueryBuilder\\SqlQueryBuilder.csproj",
         "projectName": "SqlQueryBuilder",
-        "projectPath": "C:\\Github\\SqlQueryBuilder\\SqlQueryBuilder\\SqlQueryBuilder.csproj",
-        "packagesPath": "C:\\Users\\Алёша\\.nuget\\packages\\",
-        "outputPath": "C:\\Github\\SqlQueryBuilder\\SqlQueryBuilder\\obj\\",
+        "projectPath": "D:\\university\\magister\\2-nd semestr\\db\\course_work\\sql-query-builder\\SqlQueryBuilder\\SqlQueryBuilder.csproj",
+        "packagesPath": "C:\\Users\\lesha\\.nuget\\packages\\",
+        "outputPath": "D:\\university\\magister\\2-nd semestr\\db\\course_work\\sql-query-builder\\SqlQueryBuilder\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Алёша\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lesha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,55 +45,55 @@
           "dependencies": {
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.1.0, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "[1.9.10, )"
+              "version": "[1.10.8, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             },
             "Swashbuckle.AspNetCore.Newtonsoft": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             },
             "Swashbuckle.AspNetCore.SwaggerUi": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             }
           },
           "imports": [
@@ -114,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
