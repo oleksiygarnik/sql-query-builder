@@ -22,22 +22,16 @@ namespace SqlQueryBuilder.Controllers
 
     public class VirtualTableFilters
     {
-        public string Id { get; set; }
+        public string Column { get; set; }
 
-        public string BrandName { get; set; }
-
-        public string ModelName { get; set; }
-
-        public string Price { get; set; }
-
-        public string SaleDate { get; set; }
+        public string Value { get; set; }
     }
 
     public class AddVirtualTableCommand
     {
         public string TableName { get; set; }
 
-        public VirtualTableFilters Filters { get; set; }
+        public VirtualTableFilters[] Filters { get; set; }
 
         public string[] Filials { get; set; }
     }
@@ -71,9 +65,7 @@ namespace SqlQueryBuilder.Controllers
 
             foreach (var filial in command.Filials)
             {
-                if (command.Filters.GetType()
-                    .GetProperties()
-                    .All(p => p.GetValue(command.Filters) == null))
+                if (!command.Filters.Any())
                 {
                     var fragment = new Fragment
                     {
@@ -92,20 +84,18 @@ namespace SqlQueryBuilder.Controllers
                     continue;
                 }
 
-                foreach (var member in command.Filters.GetType().GetProperties())
+                foreach (var member in command.Filters)
                 {
-                    var memberValue = member.GetValue(command.Filters);
-                    if (memberValue == null)
-                        continue;
+                    var memberValue = member.Value;
 
-                    memberValue = memberValue is string
+                    memberValue = !int.TryParse(memberValue, out _)
                         ? filial == command.Filials.First() ? $"'{memberValue}'" : $"''{memberValue}''"
                         : memberValue;
 
                     var fragment = new Fragment
                     {
                         Table = virtualTable,
-                        Query = $"SELECT * FROM [Showroom].[dbo].[Car] WHERE {member.Name} = {memberValue}"
+                        Query = $"SELECT * FROM [Showroom].[dbo].[Car] WHERE {member.Column} = {memberValue}"
                     };
 
                     fragment.Query = filial == command.Filials.First()
@@ -127,8 +117,12 @@ namespace SqlQueryBuilder.Controllers
         public async Task RemoveVirtualTable(int id)
         {
             var table = await _dbContext.VirtualTables.SingleAsync(t => t.Id == id);
-            _dbContext.VirtualTables.Remove(table);
+            var fragments = await _dbContext.Fragments.Where(f => f.Table.Id == table.Id).ToListAsync();
+  
+            _dbContext.RemoveRange(fragments);
+            await _dbContext.SaveChangesAsync();
 
+            _dbContext.VirtualTables.Remove(table);
             await _dbContext.SaveChangesAsync();
         }
 
@@ -137,7 +131,7 @@ namespace SqlQueryBuilder.Controllers
         {
             var fragments = await _dbContext.Fragments.Where(f => f.Table.Id == tableId).ToListAsync();
 
-            var query = fragments.Select(f => f.Query).Aggregate((a, b) => $"{a} UNION {b}");
+            var query = fragments.Select(f => f.Query).Aggregate((a, b) => $"{a} UNION ALL {b}");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(query);

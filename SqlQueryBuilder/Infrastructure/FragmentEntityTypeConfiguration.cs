@@ -12,7 +12,8 @@ namespace SqlQueryBuilder.Infrastructure
             builder.HasKey(c => c.Id);
 
             builder.HasOne<VirtualTable>()
-                .WithMany();
+                .WithMany()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
