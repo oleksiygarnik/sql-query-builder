@@ -3,9 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using SqlQueryBuilder.Infrastructure;
-using System;
-using System.IO;
-using System.Reflection;
 
 namespace SqlQueryBuilder.Extensions
 {
