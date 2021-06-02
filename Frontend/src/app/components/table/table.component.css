@@ -1,0 +1,64 @@
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.virtual-tables {
+  margin-top: 50px;
+}
+
+.constructor {
+  margin-top: 50px;
+}
+
+.virtual-tables-names {
+  display: inline-block;
+  margin-right: 50px;
+  cursor: pointer;
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close-icon {
+    cursor: pointer;
+    color: red;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    font-size: 12px;
+}
+
+.close-icon:hover {
+  background-color: burlywood
+}
+
+.save-new-table-button {
+    margin-top: 20px;
+}
+
+.constructor > input {
+    margin: 20px 0;
+}
+
+
+.add-filter-button {
+    margin-left: 20px;
+}
+
+.filter {
+    margin: 10px 0;
+}

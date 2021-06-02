@@ -1,0 +1,51 @@
+<h3>{{tableName}}</h3>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Sale date</th>
+  </tr>
+  <tr *ngFor="let car of cars">
+    <td>{{car.id}}</td>
+    <td>{{car.brandName}}</td>
+    <td>{{car.modelName}}</td>
+    <td>{{car.price}}</td>
+    <td>{{car.saleDate}}</td>
+  </tr>
+</table>
+
+<div class="virtual-tables">
+  <div *ngFor="let virtualTable of virtualTables" class="virtual-tables-names" (click)="selectVirtualTable(virtualTable)">
+    {{virtualTable.name}}
+    <div class="close-icon" (click)="deleteVirtualTable(virtualTable.id)">X</div>
+  </div>
+  <div class="virtual-tables-names" (click)="creatingNewTable = !creatingNewTable; filters = []">Create New Virtual Table</div>
+
+  <div *ngIf="creatingNewTable" class="constructor">
+    <label>Table Name:</label><br />
+    <input type="text" placeholder="Insert Table Name" required #tableNameInput /><br/>
+
+    <label>Filters:</label>
+    <button type="button" class="add-filter-button" (click)="addNewFilter()">Add filter</button>
+    <div class="filter" *ngFor="let filter of filters; let i = index">
+      <select [(ngModel)]="filters[i].column">
+        <option *ngFor="let field of availableFields" [ngValue]="field">{{field}}</option>
+      </select>
+      =
+      <input [(ngModel)]="filters[i].value" type="text" placeholder="Value">
+      <button (click)="filters.splice(i, 1); ">Delete</button>
+    </div>
+
+
+    <div class="filials">
+      <span>Filials: </span>
+      <input type="checkbox" checked disabled>Main
+      <input type="checkbox" [checked]="addBranch" (change)="addBranch = !addBranch">
+      <label>Branch1</label>
+    </div>
+    <button type="submit" class="save-new-table-button" (click)="saveVirtualTable()">Save</button>
+  </div>
+</div>
+
